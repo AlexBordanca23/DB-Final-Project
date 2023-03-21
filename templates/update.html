@@ -1,0 +1,1 @@
+{% extends 'detail_view.html' %}{% block content %}First search for a doctor: <form method="POST">  {% csrf_token %}  {{ form.as_p }}  <input type="submit" value="Save"></form>{% endblock %}

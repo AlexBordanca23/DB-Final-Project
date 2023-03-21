@@ -1,0 +1,90 @@
+Based on the given table, I would suggest the following normalization 
+steps:
+
+Create a new table to store information about airports:
+Airports table:
+
+AirportID (primary key)
+AirportSeqID
+CityMarketID
+CityName
+State
+StateFips
+StateName
+Wac
+
+Create a new table to store information about airlines:
+Airlines table:
+
+AirlineID (primary key)
+Name
+DOT_ID
+
+Create a new table to store information about flights:
+Flights table:
+
+FlightID (primary key)
+FlightDate
+AirlineID (foreign key referencing Airlines)
+OriginAirportID (foreign key referencing Airports)
+DestAirportID (foreign key referencing Airports)
+Cancelled
+Diverted
+CRSDepTime
+DepTime
+DepDelayMinutes
+DepDelay
+ArrTime
+ArrDelayMinutes
+AirTime
+CRSElapsedTime
+ActualElapsedTime
+Distance
+Year
+Quarter
+Month
+DayofMonth
+DayOfWeek
+OperatingAirlineID (foreign key referencing Airlines)
+TailNumber
+FlightNumber
+
+Create a new table to store information about code share partnerships:
+CodeSharePartners table:
+
+AirlineID (foreign key referencing Airlines)
+MarketingAirlineID (foreign key referencing Airlines)
+DOT_ID_Marketing_Airline
+IATA_Code_Marketing_Airline
+FlightNumberMarketingAirline
+IsOperatedByPartner
+
+Create a new table to store information about flight delays:
+FlightDelays table:
+
+FlightID (foreign key referencing Flights)
+DelayType (e.g. "departure", "arrival")
+DelayMinutes
+DelayGroups
+
+Create a new table to store information about flight times:
+FlightTimes table:
+
+FlightID (foreign key referencing Flights)
+DepTimeBlk
+ArrTimeBlk
+DistanceGroup
+
+Create a new table to store information about airport operations:
+AirportOperations table:
+
+AirportID (foreign key referencing Airports)
+TaxiOut
+WheelsOff
+WheelsOn
+TaxiIn
+DivAirportLandings
+
+With this normalization, we can reduce data redundancy and ensure data 
+consistency. We can also more easily update or modify information without 
+running into anomalies.
