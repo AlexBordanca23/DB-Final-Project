@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>Delete Patient {{ patient_id.patient_id }}</h3>
+  <p>Are you sure you want to delete {{ patient_id.lastname }}, {{ patient_id.firstname }}?</p>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+  </form>
+{% endblock %}

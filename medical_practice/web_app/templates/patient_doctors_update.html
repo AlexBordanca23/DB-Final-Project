@@ -1,0 +1,10 @@
+{% extends 'patient_doctors_detail_view.html' %}
+{% block content %}
+First search for a patient: 
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Save">
+</form>
+
+{% endblock %}

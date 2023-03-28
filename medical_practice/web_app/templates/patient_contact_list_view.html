@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Patient List View
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center">
+    <table class="table table-sm table-striped table-dark mx-auto">
+        <tr class="table-primary">
+            <th>Patient ID</th>
+            <th>Email</th>
+            <th>Street Address</th>
+             <th>City</th>
+             <th>State</th>
+             <th>Zip</th>
+        </tr>
+        <tbody>
+            {% for data in dataset %}
+            <tr>
+                <td>{{ data.patient_id }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.street_address }}</td>
+                <td>{{ data.city }}</td>
+                <td>{{ data.state }}</td>
+                <td>{{ data.zip }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

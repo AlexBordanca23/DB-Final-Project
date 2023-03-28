@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Patient Detail View
+{% endblock %}
+
+{% block content %}
+<h4> To update/delete a patient's info, you first need to search for a doctor </h4>
+</br>
+</br>
+</br>
+<div class="d-flex justify-content-center">
+   <form method="POST">
+     {% csrf_token %}
+     <label for="id">ID:</label>
+     <input type="text" name="id">
+     <input type="submit" value="Search">
+   </form>
+</div>
+{% if data %}
+<p>Instance found:</p>
+<div class="d-flex justify-content-center">
+    <table class="table table-sm table-striped table-dark mx-auto">
+        <tr class="table-primary">
+            <th>Patient ID</th>
+            <th>Email</th>
+            <th>Street Address</th>
+             <th>City</th>
+             <th>State</th>
+             <th>Zip</th>
+        </tr>
+        <tbody>
+            
+            <tr>
+                <td>{{ data.patient_id }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.street_address }}</td>
+                <td>{{ data.city }}</td>
+                <td>{{ data.state }}</td>
+                <td>{{ data.zip }}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+</div>
+<div class = "container">
+<p><a href = {% url 'pc-update' id=data.patient_id %}>Update</a></p>
+<p><a href = {% url 'pc-delete' id=data.patient_id %}>Delete</a></p>
+{% endif %}
+{% endblock %} 
+
+
+

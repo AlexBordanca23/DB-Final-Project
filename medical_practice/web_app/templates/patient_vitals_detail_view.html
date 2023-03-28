@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Patient Health Detail View
+{% endblock %}
+
+{% block content %}
+<h4> To update/delete a patient's health info, you first need to search for a record </h4>
+</br>
+</br>
+</br>
+<div class="d-flex justify-content-center">
+   <form method="POST">
+     {% csrf_token %}
+     <label for="id">ID:</label>
+     <input type="text" name="id">
+     <input type="submit" value="Search">
+   </form>
+</div>
+{% if data %}
+<p>Instance found:</p>
+<div class="d-flex justify-content-center">
+    <table class="table table-sm table-striped table-dark mx-auto">
+        <tr class="table-primary">
+            <th>Patient ID</th>
+            <th>Last Height</th>
+            <th>Last Weight</th>
+            <th>Last Heartrate</th>
+            <th>Last Systolic BP</th>
+            <th>Last Diastolic BP</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>{{ data.patient }}</td>
+                <td>{{ data.last_height }}</td>
+                <td>{{ data.last_weight }}</td>
+                <td>{{ data.last_heartrate }}</td>
+                <td>{{ data.last_systolic_bp }}</td>
+                <td>{{ data.last_diastolic_bp }}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+</div>
+<div class = "container">
+<p><a href = {% url 'pv-update' id=data.patient %}>Update</a></p>
+<p><a href = {% url 'pv-delete' id=data.patient %}>Delete</a></p>
+{% endif %}
+{% endblock %} 
+
+
+

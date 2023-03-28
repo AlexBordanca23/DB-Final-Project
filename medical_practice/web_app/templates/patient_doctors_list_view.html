@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Patients & Doctors List View
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center">
+    <table class="table table-sm table-striped table-dark mx-auto">
+        <tr class="table-primary">
+           <th>Patient ID</th>
+           <th>Doctor</th>
+        </tr>
+        <tbody>
+            {% for data in dataset %}
+            <tr>
+                <td>{{ data.patient_id }}</td>
+                <td>{{ data.doctor }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

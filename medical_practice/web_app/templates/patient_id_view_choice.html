@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+View Choices
+{% endblock %}
+
+{% block content %}
+
+<a href = {% url 'detail_view' %}> Detail View </a>
+<a href = {% url 'list_view' %}> List View </a>
+
+{% endblock %}

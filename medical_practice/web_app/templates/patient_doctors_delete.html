@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>Delete Doctor Relationship {{ patient_doctors.patient_id }}</h3>
+  <p>Are you sure you want to delete the relationship of {{ patient_doctors.patient_id }} as patient to {{ patient_doctors.doctor }}?</p>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+  </form>
+{% endblock %}
