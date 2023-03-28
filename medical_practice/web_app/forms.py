@@ -12,34 +12,34 @@ from .models import Doctors, PatientContact, PatientDoctors, PatientFinance, Pat
 class DoctorForm(forms.ModelForm):
     class Meta:
         model = Doctors
-        fields = ['first_name', 'last_name']
+        fields = '__all__'
 
 class PatientContactForm(forms.ModelForm):
     class Meta:
         model = PatientContact
-        fields = ['email', 'street_address', 'city', 'state', 'zip']
+        fields = '__all__'
 
 class PatientDoctorsForm(forms.ModelForm):
     class Meta:
         model = PatientDoctors
-        fields = ['doctor']
+        fields = '__all__'
 
 class PatientFinanceForm(forms.ModelForm):
     class Meta:
         model = PatientFinance
-        fields = ['amount_due', 'ins_co']
+        fields = '__all__'
 
 class PatientHealthForm(forms.ModelForm):
     class Meta:
         model = PatientHealth
-        fields = ['current_smoker', 'condition_1', 'condition_2', 'condition_3', 'condition_4', 'condition_5', 'condition_6', 'condition_7', 'condition_8', 'condition_9', 'condition_10']
+        fields = '__all__'
 
 class PatientIdForm(forms.ModelForm):
     class Meta:
         model = PatientId
-        fields = ['firstname', 'lastname', 'dob', 'age', 'biol_sex', 'ethnicity']
+        fields = '__all__'
 
 class PatientVitalsForm(forms.ModelForm):
     class Meta:
         model = PatientVitals
-        fields = ['last_height', 'last_weight']
+        fields = '__all__'
