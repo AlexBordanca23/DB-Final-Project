@@ -22,6 +22,7 @@ Doctor Detail View
 <div class="d-flex justify-content-center">
     <table class="table table-sm table-striped table-dark mx-auto">
         <tr class="table-primary">
+            <th>Patient ID</th>
             <th>Current Smoker</th>
             <th>Condition 1</th>
             <th>Condition 2</th>
@@ -54,8 +55,8 @@ Doctor Detail View
     </table>
 </div>
 <div class = "container">
-<p><a href = {% url 'ph-update' id=data.patient %}>Update</a></p>
-<p><a href = {% url 'ph-delete' id=data.patient %}>Delete</a></p>
+<p><a href = {% url 'ph-update' id=data.patient.patient_id %}>Update</a></p>
+<p><a href = {% url 'ph-delete' id=data.patient.patient_id %}>Delete</a></p>
 {% endif %}
 {% endblock %} 
 

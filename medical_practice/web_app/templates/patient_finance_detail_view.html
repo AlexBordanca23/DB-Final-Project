@@ -36,8 +36,8 @@ Doctor Detail View
     </table>
 </div>
 <div class = "container">
-<p><a href = {% url 'pf-update' id=data.patient %}>Update</a></p>
-<p><a href = {% url 'pf-delete' id=data.patient %}>Delete</a></p>
+<p><a href = {% url 'pf-update' id=data.patient.patient_id %}>Update</a></p>
+<p><a href = {% url 'pf-delete' id=data.patient.patient_id %}>Delete</a></p>
 {% endif %}
 {% endblock %} 
 

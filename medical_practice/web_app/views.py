@@ -236,7 +236,8 @@ def pf_detail_view(request):
         # get the ID from the form data
         id = request.POST.get('id')
         # look up the model instance by ID
-        instance = get_object_or_404(PatientFinance, patient=id)
+        interm = get_object_or_404(PatientId,pk =id)
+        instance = get_object_or_404(PatientFinance, patient=interm)
         return render(request, 'patient_finance_detail_view.html', {'data': instance})
    else:
         return render(request, 'patient_finance_detail_view.html')
@@ -300,7 +301,8 @@ def ph_detail_view(request):
         # get the ID from the form data
         id = request.POST.get('id')
         # look up the model instance by ID
-        instance = get_object_or_404(PatientHealth, patient=id)
+        interm = get_object_or_404(PatientId,pk =id)
+        instance = get_object_or_404(PatientHealth, patient=interm)
         return render(request, 'patient_health_detail_view.html', {'data': instance})
    else:
         return render(request, 'patient_health_detail_view.html')
@@ -364,7 +366,8 @@ def pv_detail_view(request):
         # get the ID from the form data
         id = request.POST.get('id')
         # look up the model instance by ID
-        instance = get_object_or_404(PatientVitals, patient=id)
+        interm = get_object_or_404(PatientId,pk=id)
+        instance = get_object_or_404(PatientVitals, patient=interm)
         return render(request, 'patient_vitals_detail_view.html', {'data': instance})
    else:
         return render(request, 'patient_vitals_detail_view.html')
