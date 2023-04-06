@@ -1,0 +1,29 @@
+After you create a git login you need to create and add an ssh key with a passphrase so you can push 
+your commits. Go to this link and follow steps in sublinks: 
+Get https://git-scm.com/downloads
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+
+The commands you need to know from here:
+
+#to clone repository
+
+git clone https://github.com/AlexBordanca23/DB-Final-Project
+
+# create your local branch
+
+git branch <branchname>
+
+#switch to branch
+
+git checkout <branchname>
+
+# add remote origin that you can push to:
+
+git remote add origin https://github.com/AlexBordanca23/DB-Final-Project
+
+#To commit changes you've made it's these commands:
+
+git add -A
+git commit -m"<descriptive message of changes made>"
+git push -u origin <branchname>
