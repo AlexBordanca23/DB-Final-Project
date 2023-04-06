@@ -77,6 +77,9 @@ class PatientId(models.Model):
     age = models.IntegerField(db_column='Age', blank=False, null=True, max_length=255)  # Field name made lowercase.
     biol_sex = models.CharField(db_column='Biol_sex', blank=False, null=True, max_length=255)  # Field name made lowercase.
     ethnicity = models.CharField(db_column='Ethnicity', blank=False, null=True, max_length=255)  # Field name made lowercase.
+    
+    def __str__(self):
+        return str(self.patient_id)
 
     class Meta:
         managed = False

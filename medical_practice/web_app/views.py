@@ -3,6 +3,7 @@ from .forms import DoctorForm,PatientContactForm, PatientDoctorsForm, PatientFin
 from .models import Doctors, PatientContact, PatientDoctors,PatientFinance, PatientHealth, PatientVitals, PatientId
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from dal import autocomplete
 # Create your views here.
 
 def home(request):
@@ -460,3 +461,16 @@ def pid_delete_view(request, id):
         patient_id.delete()
         return redirect(home)
     return render(request, 'patient_id_delete.html', {'patient_id': patient_id})
+
+
+class PatientIdAutocomplete(autocomplete.Select2QuerySetView):
+    def get_queryset(self):
+        qs = PatientId.objects.all()
+
+        if self.q:
+            try:
+                qs = qs.filter(patient_id=int(self.q))
+            except ValueError:
+                qs = qs.none()
+
+        return qs

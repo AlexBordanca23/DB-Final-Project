@@ -9,6 +9,7 @@ Created on Tue Mar 21 01:59:41 2023
 from django.urls import path
 
 from . import views 
+from .views import PatientIdAutocomplete
 
 urlpatterns = [
     path('', views.home, name = 'home'),
@@ -67,5 +68,7 @@ urlpatterns = [
    path('patient-id/detail/', views.pid_detail_view, name='pid-detail'),
    path('patient-id/choices/', views.pid_view_choices, name='pid-view-choices'),
    path('patient-id/update/<int:id>/', views.pid_update_view, name='pid-update'),
-   path('patient-id/delete/<int:id>/', views.pid_delete_view, name = 'pid-delete')
+   path('patient-id/delete/<int:id>/', views.pid_delete_view, name = 'pid-delete'),
+   
+   path('patient-autocomplete/', PatientIdAutocomplete.as_view(), name='patient-autocomplete'),
 ]
