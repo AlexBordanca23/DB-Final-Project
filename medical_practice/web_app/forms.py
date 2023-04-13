@@ -69,8 +69,8 @@ class PatientIdWidget(forms.TextInput):
 class PatientFinanceForm(forms.ModelForm):
     class Meta:
         model = PatientFinance
-        fields = ['patient', 'amount_due', 'ins_co']
-        widgets = {'patient': PatientIdWidget()}
+        fields = '__all__'
+       # widgets = {'patient': PatientIdWidget}
         
 
         
